@@ -1,14 +1,16 @@
 import type { NextPage } from 'next'
-import { trpc } from '../utils/trpc'
+import { useTrpc } from '../utils/trpc';
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(['hello', { text: 'client' }]);
+  const hello = useTrpc.useQuery(['tests.hello', { text: 'client' }]);
+  console.log(hello);
+ 
   if (!hello.data) {
     return <div>Loading...</div>;
   }
   return (
     <div>
-      <p>{hello.data.greeting}</p>
+      <p>{JSON.stringify(hello.data)}</p>
     </div>
   );
 }
