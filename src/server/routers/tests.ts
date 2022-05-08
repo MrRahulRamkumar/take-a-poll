@@ -1,4 +1,3 @@
-import * as trpc from '@trpc/server';
 import { z } from 'zod';
 import { createRouter } from '../createRouter';
 
@@ -11,7 +10,7 @@ export const testRouter = createRouter()
         console.log(ctx.token)
         console.log(input)
         return {
-            greeting: `hello ${input?.text ?? 'world'}`,
+          greeting: `hello ${input?.text ?? 'world'}`,
         };
     },
   });
